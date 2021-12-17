@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Dec 30 22:33:08 2019
-
-@author: carlo
-"""
-
 '''
 Create a deck of 52 cards
 Shuffle the deck
@@ -19,7 +12,6 @@ If a Player Stands, play the Dealer's hand. The dealer will always Hit until the
 Determine the winner and adjust the Player's chips accordingly
 Ask the Player if they'd like to play again
 '''
-
 import random
 
 suits =("Hearts", "Diamonds", "Spades", "Clubs")
@@ -29,7 +21,6 @@ values = {"Two":2, "Three":3, "Four":4, "Five":5, "Six":6, "Seven":7, "Eight":8,
 playing= True
 
 class Card:
-
     def __init__(self,suit,rank):
         self.suit = suit
         self.rank = rank
@@ -37,9 +28,7 @@ class Card:
     def __str__(self):
         return self.rank + ' of ' + self.suit
         
-        
 class Deck:
-    
     def __init__(self):
         self.deck = []
         for suit in suits:
@@ -60,7 +49,6 @@ class Deck:
         return single_card
     
 class Hand:
-    
     def __init__(self):
         self.cards=[]
         self.value=0
@@ -78,7 +66,6 @@ class Hand:
             self.aces -=1 
     
 class Chips:
-    
     def __init__(self):
         self.total = 100
         self.bet = 0
@@ -88,7 +75,6 @@ class Chips:
         
     def lose_bet (self):
         self.total -= self.bet
-        
         
 def take_bet(chips):
     
@@ -102,7 +88,6 @@ def take_bet(chips):
                 print ("Man your bet can't exceed:", chips.total)
             else:
                 break
-            
             
 def hit (deck,hand):
     hand.add_card(deck.deal())
@@ -207,7 +192,6 @@ while True:
         else:
             push((player_hand, dealer_hand))
 
-
     print ("Player's winnings stand at",player_chips.total)
 
     new_game = input ("would you like to play again?")
@@ -218,7 +202,3 @@ while True:
     else:
         print ("thanks for playing")
         break 
-
-
-
-        
